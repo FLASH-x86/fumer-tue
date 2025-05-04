@@ -109,29 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Loading Animation
-    const loader = document.querySelector('.loader');
-    
-    // Hide loader after page is fully loaded
-    window.addEventListener('load', () => {
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        }
-    });
-
-    // Fallback: Hide loader after 3 seconds if page load event doesn't fire
-    setTimeout(() => {
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        }
-    }, 3000);
-
     // Initialize AOS
     AOS.init({
         duration: 800,
