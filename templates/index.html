@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de sensibilisation aux dangers du tabagisme">
     <title>Fumer Tue - Sensibilisation au Tabagisme</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
 </head>
+
 <body>
+    <!-- Header Section -->
     <header>
-        <nav>
+        <nav class="main-nav">
             <div class="logo">
                 <i class="fas fa-smoking-ban"></i>
                 <span>Fumer Tue</span>
             </div>
             <div class="nav-links">
-                <a href="#dangers">Les Dangers</a>
-                <a href="#stats">Statistiques</a>
-                <a href="#calculator">Calculateur</a>
-                <a href="#help">Comment Arrêter</a>
-                <a href="#contact">Contact</a>
+                <a href="#dangers" class="nav-link">Les Dangers</a>
+                <a href="#stats" class="nav-link">Statistiques</a>
+                <a href="#calculator" class="nav-link">Calculateur</a>
+                <a href="#help" class="nav-link">Comment Arrêter</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button id="darkModeToggle" class="control-btn">
+            <button id="darkModeToggle" class="control-btn" aria-label="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
             </button>
         </nav>
     </header>
 
-    <section id="hero" class="section">
-        <h1>Le Tabac Tue</h1>
-        <p>Découvrez les dangers du tabagisme et apprenez à arrêter</p>
-        <a href="#dangers" class="cta-button">En Savoir Plus</a>
+    <!-- Hero Section -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-content">
+            <h1>Le Tabac Tue</h1>
+            <p>Découvrez les dangers du tabagisme et apprenez à arrêter</p>
+            <a href="#dangers" class="cta-button">En Savoir Plus</a>
+        </div>
     </section>
 
-    <section id="dangers" class="section">
+    <!-- Dangers Section -->
+    <section id="dangers" class="section dangers-section">
         <h2>Les Dangers du Tabac</h2>
         <div class="dangers-grid">
             <div class="danger-card">
@@ -60,17 +70,18 @@
         </div>
     </section>
 
-    <section id="calculator" class="section">
+    <!-- Calculator Section -->
+    <section id="calculator" class="section calculator-section">
         <h2>Calculateur d'Impact</h2>
         <div class="calculator-container">
             <div class="calculator-inputs">
                 <div class="input-group">
                     <label for="cigarettes">Cigarettes par jour</label>
-                    <input type="number" id="cigarettes" value="10" min="0">
+                    <input type="number" id="cigarettes" value="10" min="0" aria-label="Nombre de cigarettes par jour">
                 </div>
                 <div class="input-group">
                     <label for="years">Années de tabagisme</label>
-                    <input type="number" id="years" value="5" min="0">
+                    <input type="number" id="years" value="5" min="0" aria-label="Nombre d'années de tabagisme">
                 </div>
                 <button id="calculate" class="calculator-btn">Calculer</button>
             </div>
@@ -99,7 +110,8 @@
         </div>
     </section>
 
-    <section id="help" class="section">
+    <!-- Help Section -->
+    <section id="help" class="section help-section">
         <h2>Comment Arrêter ?</h2>
         <div class="help-container">
             <div class="help-card">
@@ -125,24 +137,33 @@
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
         <h2>Contact</h2>
         <form id="contactForm" class="contact-form">
-            <input type="text" placeholder="Votre prénom" required>
-            <textarea placeholder="Votre message" required></textarea>
+            <input type="text" placeholder="Votre prénom" required aria-label="Votre prénom">
+            <textarea placeholder="Votre message" required aria-label="Votre message"></textarea>
             <button type="submit" class="submit-btn">Envoyer</button>
         </form>
         <div class="social-links">
-            <a href="https://www.facebook.com/share/16SaLXsEN3/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/f_l_a_c_h_?igsh=bzZ0MXZ6M3ZxZTJq" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/16SaLXsEN3/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/f_l_a_c_h_?igsh=bzZ0MXZ6M3ZxZTJq" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
     </section>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="main-footer">
         <p>© 2024 Fumer Tue - Projet de sensibilisation au tabagisme</p>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </body>
 </html>
