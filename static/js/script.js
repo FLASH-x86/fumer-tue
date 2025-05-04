@@ -122,6 +122,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Fallback: Hide loader after 3 seconds if page load event doesn't fire
+    setTimeout(() => {
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }, 3000);
+
     // Initialize AOS
     AOS.init({
         duration: 800,

@@ -41,6 +41,7 @@ body {
     align-items: center;
     z-index: 9999;
     transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
 .loader-content {
@@ -52,6 +53,7 @@ body {
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
+    animation: fadeIn 0.5s ease;
 }
 
 .loader-content i {
@@ -436,6 +438,11 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .pulse {
