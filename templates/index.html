@@ -62,7 +62,7 @@
                     <i class="fas fa-lungs"></i>
                 </div>
                 <h3>Problèmes Respiratoires</h3>
-                <p>Le tabac endommage gravement vos poumons et peut causer des maladies chroniques.</p>
+                <p>Le tabac endommage gravement vos poumons et peut causer des maladies chroniques comme la bronchite chronique et l'emphysème. Il augmente également le risque de cancer du poumon.</p>
                 <div class="card-hover"></div>
             </div>
             <div class="danger-card" data-aos="zoom-in" data-aos-delay="200">
@@ -70,7 +70,7 @@
                     <i class="fas fa-heart"></i>
                 </div>
                 <h3>Maladies Cardiaques</h3>
-                <p>Augmentation significative du risque d'infarctus et d'AVC.</p>
+                <p>Le tabagisme est un facteur majeur de maladies cardiovasculaires. Il augmente significativement le risque d'infarctus, d'AVC et d'hypertension artérielle.</p>
                 <div class="card-hover"></div>
             </div>
             <div class="danger-card" data-aos="zoom-in" data-aos-delay="300">
@@ -78,7 +78,7 @@
                     <i class="fas fa-brain"></i>
                 </div>
                 <h3>Dépendance</h3>
-                <p>La nicotine crée une dépendance aussi forte que l'héroïne.</p>
+                <p>La nicotine crée une dépendance aussi forte que l'héroïne. Elle modifie le fonctionnement du cerveau et rend l'arrêt du tabac très difficile.</p>
                 <div class="card-hover"></div>
             </div>
             <div class="danger-card" data-aos="zoom-in" data-aos-delay="400">
@@ -86,7 +86,7 @@
                     <i class="fas fa-tooth"></i>
                 </div>
                 <h3>Problèmes Dentaires</h3>
-                <p>Jaunissement des dents, maladies des gencives et mauvaise haleine.</p>
+                <p>Le tabac provoque le jaunissement des dents, des maladies des gencives, une mauvaise haleine et augmente le risque de cancer de la bouche.</p>
                 <div class="card-hover"></div>
             </div>
         </div>
@@ -149,7 +149,7 @@
                     <i class="fas fa-calendar-check"></i>
                 </div>
                 <h3>Fixez une date</h3>
-                <p>Choisissez un jour précis pour arrêter et préparez-vous mentalement.</p>
+                <p>Choisissez un jour précis pour arrêter et préparez-vous mentalement. Préparez votre environnement en supprimant tous les objets liés au tabac.</p>
                 <div class="card-hover"></div>
             </div>
             <div class="help-card" data-aos="zoom-in" data-aos-delay="200">
@@ -157,7 +157,7 @@
                     <i class="fas fa-dumbbell"></i>
                 </div>
                 <h3>Faites du sport</h3>
-                <p>L'activité physique aide à réduire les envies et améliore votre santé.</p>
+                <p>L'activité physique aide à réduire les envies et améliore votre santé. Elle libère des endorphines qui aident à combattre le stress et l'anxiété.</p>
                 <div class="card-hover"></div>
             </div>
             <div class="help-card" data-aos="zoom-in" data-aos-delay="300">
@@ -165,13 +165,28 @@
                     <i class="fas fa-phone-alt"></i>
                 </div>
                 <h3>Cherchez de l'aide</h3>
-                <p>Appelez le 39 89 pour un accompagnement gratuit.</p>
+                <p>Appelez le 39 89 pour un accompagnement gratuit. Des professionnels sont là pour vous aider à arrêter de fumer.</p>
                 <div class="card-hover"></div>
             </div>
         </div>
         <div class="quiz-container" data-aos="fade-up" data-aos-delay="400">
             <h3>Testez votre dépendance</h3>
-            <div id="quiz"></div>
+            <div id="quiz">
+                <div class="quiz-question">
+                    <p>Combien de cigarettes fumez-vous par jour ?</p>
+                    <input type="range" min="0" max="40" value="10" id="quiz-cigarettes">
+                    <span id="quiz-cigarettes-value">10</span>
+                </div>
+                <div class="quiz-question">
+                    <p>À quel moment fumez-vous votre première cigarette ?</p>
+                    <select id="quiz-time">
+                        <option value="5">Dans les 5 minutes</option>
+                        <option value="30">Dans les 30 minutes</option>
+                        <option value="60">Dans l'heure</option>
+                        <option value="120">Après plus d'une heure</option>
+                    </select>
+                </div>
+            </div>
             <button id="submitQuiz" class="quiz-btn pulse">Voir les résultats</button>
         </div>
     </section>
@@ -199,7 +214,7 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <p>© 2024 Fumer Tue - Projet de sensibilisation au tabagisme</p>
+        <p>© 2025 Fumer Tue - Projet de sensibilisation au tabagisme</p>
     </footer>
 
     <!-- Back to Top Button -->
