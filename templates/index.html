@@ -10,12 +10,21 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
 </head>
 
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <i class="fas fa-smoking-ban"></i>
+            <div class="loader-text">Chargement...</div>
+        </div>
+    </div>
+
     <!-- Header Section -->
-    <header>
+    <header class="sticky-header">
         <nav class="main-nav">
             <div class="logo">
                 <i class="fas fa-smoking-ban"></i>
@@ -36,44 +45,57 @@
 
     <!-- Hero Section -->
     <section id="hero" class="section hero-section">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h1>Le Tabac Tue</h1>
             <p>Découvrez les dangers du tabagisme et apprenez à arrêter</p>
-            <a href="#dangers" class="cta-button">En Savoir Plus</a>
+            <a href="#dangers" class="cta-button pulse">En Savoir Plus</a>
         </div>
+        <div class="hero-particles" id="particles-js"></div>
     </section>
 
     <!-- Dangers Section -->
     <section id="dangers" class="section dangers-section">
-        <h2>Les Dangers du Tabac</h2>
+        <h2 data-aos="fade-up">Les Dangers du Tabac</h2>
         <div class="dangers-grid">
-            <div class="danger-card">
-                <i class="fas fa-lungs"></i>
+            <div class="danger-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-icon">
+                    <i class="fas fa-lungs"></i>
+                </div>
                 <h3>Problèmes Respiratoires</h3>
                 <p>Le tabac endommage gravement vos poumons et peut causer des maladies chroniques.</p>
+                <div class="card-hover"></div>
             </div>
-            <div class="danger-card">
-                <i class="fas fa-heart"></i>
+            <div class="danger-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
                 <h3>Maladies Cardiaques</h3>
                 <p>Augmentation significative du risque d'infarctus et d'AVC.</p>
+                <div class="card-hover"></div>
             </div>
-            <div class="danger-card">
-                <i class="fas fa-brain"></i>
+            <div class="danger-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
                 <h3>Dépendance</h3>
                 <p>La nicotine crée une dépendance aussi forte que l'héroïne.</p>
+                <div class="card-hover"></div>
             </div>
-            <div class="danger-card">
-                <i class="fas fa-tooth"></i>
+            <div class="danger-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
                 <h3>Problèmes Dentaires</h3>
                 <p>Jaunissement des dents, maladies des gencives et mauvaise haleine.</p>
+                <div class="card-hover"></div>
             </div>
         </div>
     </section>
 
     <!-- Calculator Section -->
     <section id="calculator" class="section calculator-section">
-        <h2>Calculateur d'Impact</h2>
-        <div class="calculator-container">
+        <h2 data-aos="fade-up">Calculateur d'Impact</h2>
+        <div class="calculator-container" data-aos="fade-up" data-aos-delay="100">
             <div class="calculator-inputs">
                 <div class="input-group">
                     <label for="cigarettes">Cigarettes par jour</label>
@@ -83,26 +105,34 @@
                     <label for="years">Années de tabagisme</label>
                     <input type="number" id="years" value="5" min="0" aria-label="Nombre d'années de tabagisme">
                 </div>
-                <button id="calculate" class="calculator-btn">Calculer</button>
+                <button id="calculate" class="calculator-btn pulse">Calculer</button>
             </div>
             <div class="calculator-results">
-                <div class="result-card">
-                    <i class="fas fa-lungs"></i>
+                <div class="result-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
                     <h3>Impact sur les Poumons</h3>
                     <p id="lungs-result">-0% de capacité</p>
                 </div>
-                <div class="result-card">
-                    <i class="fas fa-heart"></i>
+                <div class="result-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h3>Risque Cardiaque</h3>
                     <p id="heart-result">+0% de risque</p>
                 </div>
-                <div class="result-card">
-                    <i class="fas fa-euro-sign"></i>
+                <div class="result-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
                     <h3>Argent Dépensé</h3>
                     <p id="money-result">0€ dépensés</p>
                 </div>
-                <div class="result-card">
-                    <i class="fas fa-clock"></i>
+                <div class="result-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
                     <h3>Impact sur l'Espérance de Vie</h3>
                     <p id="life-result">-0 ans d'espérance de vie</p>
                 </div>
@@ -112,40 +142,49 @@
 
     <!-- Help Section -->
     <section id="help" class="section help-section">
-        <h2>Comment Arrêter ?</h2>
+        <h2 data-aos="fade-up">Comment Arrêter ?</h2>
         <div class="help-container">
-            <div class="help-card">
-                <i class="fas fa-calendar-check"></i>
+            <div class="help-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
                 <h3>Fixez une date</h3>
                 <p>Choisissez un jour précis pour arrêter et préparez-vous mentalement.</p>
+                <div class="card-hover"></div>
             </div>
-            <div class="help-card">
-                <i class="fas fa-dumbbell"></i>
+            <div class="help-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
                 <h3>Faites du sport</h3>
                 <p>L'activité physique aide à réduire les envies et améliore votre santé.</p>
+                <div class="card-hover"></div>
             </div>
-            <div class="help-card">
-                <i class="fas fa-phone-alt"></i>
+            <div class="help-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
                 <h3>Cherchez de l'aide</h3>
                 <p>Appelez le 39 89 pour un accompagnement gratuit.</p>
+                <div class="card-hover"></div>
             </div>
         </div>
-        <div class="quiz-container">
+        <div class="quiz-container" data-aos="fade-up" data-aos-delay="400">
             <h3>Testez votre dépendance</h3>
             <div id="quiz"></div>
-            <button id="submitQuiz" class="quiz-btn">Voir les résultats</button>
+            <button id="submitQuiz" class="quiz-btn pulse">Voir les résultats</button>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
-        <h2>Contact</h2>
-        <form id="contactForm" class="contact-form">
+        <h2 data-aos="fade-up">Contact</h2>
+        <form id="contactForm" class="contact-form" data-aos="fade-up" data-aos-delay="100">
             <input type="text" placeholder="Votre prénom" required aria-label="Votre prénom">
             <textarea placeholder="Votre message" required aria-label="Votre message"></textarea>
-            <button type="submit" class="submit-btn">Envoyer</button>
+            <button type="submit" class="submit-btn pulse">Envoyer</button>
         </form>
-        <div class="social-links">
+        <div class="social-links" data-aos="fade-up" data-aos-delay="200">
             <a href="https://www.facebook.com/share/16SaLXsEN3/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <i class="fab fa-facebook"></i>
             </a>
@@ -163,7 +202,14 @@
         <p>© 2024 Fumer Tue - Projet de sensibilisation au tabagisme</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </body>
 </html>
