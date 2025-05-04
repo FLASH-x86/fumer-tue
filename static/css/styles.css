@@ -7,6 +7,9 @@
     --dark-bg: #1a1a1a;
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -21,22 +24,18 @@ body {
     color: var(--text-color);
     background: var(--light-bg);
     transition: var(--transition);
+    overflow-x: hidden;
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background: var(--dark-bg);
-    color: #fff;
-}
-
-/* Loading Animation */
+/* Modern Loader */
 .loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--light-bg);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,21 +45,29 @@ body.dark-mode {
 
 .loader-content {
     text-align: center;
+    color: white;
+    padding: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
-.loader i {
-    font-size: 4rem;
+.loader-content i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 1.5s infinite;
     color: var(--primary-color);
-    animation: pulse 2s infinite;
 }
 
-.loader-text {
-    margin-top: 1rem;
+.loader-content p {
     font-size: 1.2rem;
-    color: var(--text-color);
+    margin-top: 1rem;
+    font-weight: 300;
 }
 
-/* Header */
+/* Modern Header */
 .sticky-header {
     position: sticky;
     top: 0;
@@ -86,6 +93,7 @@ body.dark-mode {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -99,6 +107,7 @@ body.dark-mode {
     font-weight: 500;
     position: relative;
     padding: 0.5rem 0;
+    transition: var(--transition);
 }
 
 .nav-link::after {
@@ -116,7 +125,7 @@ body.dark-mode {
     width: 100%;
 }
 
-/* Hero Section */
+/* Modern Hero Section */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -125,12 +134,18 @@ body.dark-mode {
     text-align: center;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,77,77,0.1), rgba(52,152,219,0.1));
 }
 
 .hero-content {
     max-width: 800px;
     padding: 2rem;
     z-index: 1;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .hero-content h1 {
@@ -138,11 +153,15 @@ body.dark-mode {
     margin-bottom: 1rem;
     color: var(--primary-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease;
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
 
 .cta-button {
@@ -155,6 +174,9 @@ body.dark-mode {
     font-weight: bold;
     transition: var(--transition);
     box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+    animation: fadeInUp 1s ease 0.4s;
+    opacity: 0;
+    animation-fill-mode: forwards;
 }
 
 .cta-button:hover {
@@ -162,22 +184,25 @@ body.dark-mode {
     box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-/* Cards */
+/* Modern Cards */
 .danger-card, .help-card, .result-card {
-    background: white;
-    border-radius: 15px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 2rem;
     text-align: center;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    box-shadow: var(--card-shadow);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .card-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: var(--transition);
 }
 
 .card-hover {
@@ -189,22 +214,25 @@ body.dark-mode {
     background: linear-gradient(45deg, rgba(255, 77, 77, 0.1), rgba(52, 152, 219, 0.1));
     opacity: 0;
     transition: var(--transition);
+    backdrop-filter: blur(5px);
 }
 
 .danger-card:hover, .help-card:hover, .result-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.02);
 }
 
 .danger-card:hover .card-hover, .help-card:hover .card-hover, .result-card:hover .card-hover {
     opacity: 1;
 }
 
-/* Calculator Section */
+/* Modern Calculator */
 .calculator-container {
-    background: white;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: var(--card-shadow);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
     max-width: 800px;
     margin: 0 auto;
 }
@@ -217,19 +245,23 @@ body.dark-mode {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 .input-group input {
     width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #ddd;
+    padding: 1rem;
+    border: 2px solid var(--glass-border);
     border-radius: 10px;
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .input-group input:focus {
     border-color: var(--primary-color);
     outline: none;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
 }
 
 .calculator-btn {
@@ -249,13 +281,15 @@ body.dark-mode {
     box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-/* Quiz Section */
+/* Modern Quiz */
 .quiz-container {
-    background: white;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 2rem;
     margin-top: 2rem;
-    box-shadow: var(--card-shadow);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .quiz-btn {
@@ -268,6 +302,7 @@ body.dark-mode {
     font-weight: bold;
     transition: var(--transition);
     margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
 .quiz-btn:hover {
@@ -275,10 +310,16 @@ body.dark-mode {
     box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
-/* Contact Form */
+/* Modern Contact Form */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .contact-form input,
@@ -286,9 +327,11 @@ body.dark-mode {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
-    border: 2px solid #ddd;
+    border: 2px solid var(--glass-border);
     border-radius: 10px;
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .contact-form textarea {
@@ -300,6 +343,7 @@ body.dark-mode {
 .contact-form textarea:focus {
     border-color: var(--primary-color);
     outline: none;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
 }
 
 .submit-btn {
@@ -319,7 +363,7 @@ body.dark-mode {
     box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-/* Social Links */
+/* Modern Social Links */
 .social-links {
     display: flex;
     justify-content: center;
@@ -331,14 +375,21 @@ body.dark-mode {
     color: var(--text-color);
     font-size: 1.5rem;
     transition: var(--transition);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
 }
 
 .social-link:hover {
     color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-3px) rotate(360deg);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-/* Back to Top Button */
+/* Modern Back to Top Button */
 .back-to-top {
     position: fixed;
     bottom: 2rem;
@@ -365,20 +416,25 @@ body.dark-mode {
 }
 
 .back-to-top:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) rotate(360deg);
     box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
 }
 
-/* Animations */
+/* Modern Animations */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -386,7 +442,7 @@ body.dark-mode {
     animation: pulse 2s infinite;
 }
 
-/* Responsive Design */
+/* Modern Responsive Design */
 @media (max-width: 768px) {
     .main-nav {
         flex-direction: column;
@@ -413,7 +469,12 @@ body.dark-mode {
     }
 }
 
-/* Dark Mode Specific Styles */
+/* Modern Dark Mode */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: #fff;
+}
+
 body.dark-mode .sticky-header {
     background: rgba(26, 26, 26, 0.95);
 }
@@ -423,15 +484,15 @@ body.dark-mode .help-card,
 body.dark-mode .result-card,
 body.dark-mode .calculator-container,
 body.dark-mode .quiz-container {
-    background: #2c2c2c;
+    background: rgba(44, 44, 44, 0.5);
     color: #fff;
 }
 
 body.dark-mode .input-group input,
 body.dark-mode .contact-form input,
 body.dark-mode .contact-form textarea {
-    background: #333;
-    border-color: #444;
+    background: rgba(51, 51, 51, 0.5);
+    border-color: rgba(68, 68, 68, 0.5);
     color: #fff;
 }
 

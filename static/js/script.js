@@ -103,8 +103,112 @@ document.addEventListener('DOMContentLoaded', function() {
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
-            // Save preference
-            localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+            const icon = darkModeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         });
     }
+
+    // Loading Animation
+    const loader = document.querySelector('.loader');
+    
+    // Hide loader after page is fully loaded
+    window.addEventListener('load', () => {
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    });
+
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // Initialize Particles
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: true,
+                straight: false,
+                out_mode: 'out',
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: { enable: true, mode: 'grab' },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
+            }
+        },
+        retina_detect: true
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            backToTop.style.display = 'block';
+        } else {
+            backToTop.style.display = 'none';
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Quiz Functionality
+    const quizCigarettes = document.getElementById('quiz-cigarettes');
+    const quizCigarettesValue = document.getElementById('quiz-cigarettes-value');
+    const submitQuiz = document.getElementById('submitQuiz');
+    
+    quizCigarettes.addEventListener('input', () => {
+        quizCigarettesValue.textContent = quizCigarettes.value;
+    });
+
+    submitQuiz.addEventListener('click', () => {
+        const cigarettes = parseInt(quizCigarettes.value);
+        const time = parseInt(document.getElementById('quiz-time').value);
+        
+        let addictionLevel = 'Faible';
+        if (cigarettes > 20 || time <= 5) {
+            addictionLevel = 'Forte';
+        } else if (cigarettes > 10 || time <= 30) {
+            addictionLevel = 'Moyenne';
+        }
+        
+        alert(`Votre niveau de dépendance est ${addictionLevel}.`);
+    });
+
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Message envoyé ! Nous vous répondrons bientôt.');
+        contactForm.reset();
+    });
 });
